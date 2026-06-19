@@ -1,0 +1,25 @@
+<aside class="sidebar" [class.sidebar--collapsed]="collapsed()">
+
+  <div class="sidebar__brand">
+    <span class="sidebar__logo">💪</span>
+    @if (!collapsed()) {
+      <span class="sidebar__brand-name">IamVita</span>
+    }
+  </div>
+
+  <nav class="sidebar__nav">
+    @for (item of navItems; track item.route) {
+      <a
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__link--active"
+        class="sidebar__link"
+      >
+        <span class="sidebar__icon">{{ item.icon }}</span>
+        @if (!collapsed()) {
+          <span class="sidebar__label">{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+
+</aside>

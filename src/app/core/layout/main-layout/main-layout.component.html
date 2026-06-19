@@ -1,0 +1,35 @@
+<div class="layout">
+
+  <app-sidebar
+    [collapsed]="sidebarCollapsed()"
+    (toggleCollapse)="toggleSidebar()"
+  ></app-sidebar>
+
+  <div class="layout__content">
+
+    <header class="topbar">
+      <button
+        class="topbar__menu-btn"
+        (click)="toggleSidebar()"
+        aria-label="Alternar menú"
+      >
+        ☰
+      </button>
+
+      <div class="topbar__welcome">
+        <span class="topbar__greeting">Bienvenido,</span>
+        <span class="topbar__name">{{ currentUser()?.nombre }}</span>
+      </div>
+
+      <button class="topbar__logout" (click)="logout()">
+        <span>Cerrar sesión</span>
+        <span class="topbar__logout-icon">⎋</span>
+      </button>
+    </header>
+
+    <main class="layout__main">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>
